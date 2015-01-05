@@ -1,5 +1,5 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-FROM ubuntu:14.04
+FROM resin/rpi-raspbian
 MAINTAINER ancelin julien / docker-qgismapserver-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
