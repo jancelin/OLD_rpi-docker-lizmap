@@ -21,6 +21,9 @@ To build the image do:
 
 ```
 docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/docker-lizmap:rpi_beta0.1
+
+```
+
 1.run for test
 ```
 docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t  jancelin/rpi-docker-lizmap
