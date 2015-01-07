@@ -15,16 +15,22 @@ Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for oper
 
 To build the image do:
 
-```
-docker pull jancelin/docker-lizmap 
-```
-or alternatively, you can build an image from Dockerfile:
+ you can build an image from Dockerfile:
 
 ```
-docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
+docker build -t jancelin/docker-lizmap git://github.com/jancelin/rpi-docker-lizmap
 ```
+1.run for test
+```
+docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t  jancelin/rpi-docker-lizmap
+```
+Lizmap working for testing at 
 
-before running: 
+http://"your_ip_serveur":8081/lizmap-web-client-2.10.0/lizmap/www/
+
+-----------------------------------------------------------------------------------
+
+2.before running if is not a test: 
 
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
 
