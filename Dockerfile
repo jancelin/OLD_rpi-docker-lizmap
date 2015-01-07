@@ -1,18 +1,18 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 FROM resin/rpi-raspbian
-MAINTAINER ancelin julien / docker-qgismapserver-lizmap
+MAINTAINER ancelin julien / rpi_docker-qgismapserver-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-RUN echo "deb     http://qgis.org/debian trusty main" >> /etc/apt/sources.list
-RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
-RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
+#RUN echo "deb     http://qgis.org/debian trusty main" >> /etc/apt/sources.list
+#RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
+#RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
 
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
 # Or comment this line out if you do not with to use caching
-ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
+#DD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update
 
