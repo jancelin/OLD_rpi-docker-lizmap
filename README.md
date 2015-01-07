@@ -3,6 +3,9 @@ raspberry pi docker-lizmap
 
 (lizmap-web-client-2.10.0 inside)
 
+for install docker in the raspberry pi : 
+http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-sous-raspbian/
+
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
 
