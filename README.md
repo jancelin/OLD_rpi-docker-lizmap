@@ -33,7 +33,7 @@ Lizmap working for testing at
 http://"your_ip_serveur":8081/lizmap-web-client-2.10.0/lizmap/www/
 
 -----------------------------------------------------------------------------------
-#audit court
+verification phase 07/01/2014
 
 2.before running if is not a test:  
 
@@ -95,4 +95,4 @@ http://www.3liz.com/
 
 ____________________________________________________________________________________
 
-Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 09/2014 INRA
+Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 01/2015
