@@ -20,7 +20,7 @@ To build the image do:
  you can build an image from Dockerfile:
 
 ```
-docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/docker-lizmap:rpi_beta0.1
+docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/rpi-docker-lizmap
 
 ```
 
