@@ -8,7 +8,7 @@ http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-
 
 
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
 
 
 This image contains a WebGIS server: 
