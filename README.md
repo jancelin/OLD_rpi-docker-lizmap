@@ -34,14 +34,14 @@ http://"your_ip_serveur":8081/lizmap-web-client-2.10.0/lizmap/www/
 
 -----------------------------------------------------------------------------------
 
-2.before running if is not a test: 
+2.before running if is not a test:  
 
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
 
-If the host is ubuntu server:
-Copy the files to a directory on the host, do a chown :www-data about each file ( or add -R for the folder) and install php5-sqlite: apt-get install php5-sqlite
+#If the host is ubuntu server:
+#Copy the files to a directory on the host, do a chown :www-data about each file ( or add -R for the folder) and install php5-sqlite: apt-get install php5-sqlite
 
-If the host is centos: Copy the files to a directory on the host, do a chown :33 on each file (apache does not know :www-data, but :apache so we make it a joke). And install php5-sqlite: http://www.nginxtips.com/install-php-5-5-centos-6-5/
+#If the host is centos: Copy the files to a directory on the host, do a chown :33 on each file (apache does not know :www-data, but :apache so we make it a joke). And install php5-sqlite: #http://www.nginxtips.com/install-php-5-5-centos-6-5/
 
 
 To run a container do:
