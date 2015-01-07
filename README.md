@@ -6,6 +6,8 @@ raspberry pi docker-lizmap
 for install docker in the raspberry pi : 
 http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-sous-raspbian/
 
+
+
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
 
@@ -18,8 +20,7 @@ To build the image do:
  you can build an image from Dockerfile:
 
 ```
-docker build -t jancelin/docker-lizmap git://github.com/jancelin/rpi-docker-lizmap
-```
+docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/docker-lizmap:rpi_beta0.1
 1.run for test
 ```
 docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t  jancelin/rpi-docker-lizmap
