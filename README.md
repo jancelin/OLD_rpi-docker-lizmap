@@ -14,6 +14,7 @@ http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
 
+![docker_lizmap](http://pbs.twimg.com/media/B6vkcZeIMAAS3Tp.jpg:large)
 
 This image contains a WebGIS server: 
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
