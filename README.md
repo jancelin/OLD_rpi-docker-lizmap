@@ -101,3 +101,6 @@ http://www.3liz.com/
 ____________________________________________________________________________________
 
 Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 01/2015
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+
