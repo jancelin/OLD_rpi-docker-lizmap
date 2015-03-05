@@ -5,7 +5,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-(lizmap-web-client-2.10.0 inside)
+(lizmap-web-client-2.10.0 inside / qgis-mapserver-2.4)
 
 for install docker in the raspberry pi : 
 http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-sous-raspbian/
