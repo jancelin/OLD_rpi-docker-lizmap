@@ -8,8 +8,8 @@ LizMap is a complete Internet QGIS map publishing.
 (lizmap-web-client-2.10.0 inside / qgis-mapserver-2.4)
 
 for install docker in the raspberry pi : 
-http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-sous-raspbian/
-
+#http://www.le-libriste.fr/2015/01/installer-docker-sur-un-raspberry-pi-tournant-sous-raspbian/
+http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0
 
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
