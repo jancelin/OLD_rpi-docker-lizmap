@@ -38,7 +38,6 @@ Lizmap working for testing at
 http://"your_ip_serveur":8081/lizmap-web-client-2.10.0/lizmap/www/
 
 -----------------------------------------------------------------------------------
-verification phase 07/01/2014
 
 2.before running if is not a test:  
 
