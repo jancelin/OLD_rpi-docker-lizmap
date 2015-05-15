@@ -1,6 +1,15 @@
 raspberry pi docker-lizmap 
 =============
 
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
+__________________________________________________________________
+
+Go to the WIKI (in french) for global installation of standalone server WebGIS with Docker, Postgresql/Postgis, Qgis-server and lizmap :
+
+https://github.com/jancelin/rpi-docker-lizmap/wiki
+
+____________________________________________________________________
+
 LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
@@ -12,7 +21,7 @@ for install docker in the raspberry pi :
 http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0
 
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
+
 
 ![docker_lizmap](http://pbs.twimg.com/media/B6vkcZeIMAAS3Tp.jpg:large)
 
