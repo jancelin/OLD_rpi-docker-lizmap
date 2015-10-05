@@ -6,8 +6,8 @@ ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
 RUN echo "deb    http://http.debian.net/debian jessie-backports main " >> /etc/apt/sources.list
-RUN gpg --keyserver pgpkeys.mit.edu --recv-key  8B48AD6246925553      
-RUN gpg -a --export 8B48AD6246925553 | sudo apt-key add -
+RUN gpg --keyserver pgpkeys.mit.edu --recv-key 01234567
+RUN pg -a --export 01234567 | apt-key add -
 
 #RUN echo "deb     http://qgis.org/debian-ltr jessie main" >> /etc/apt/sources.list
 #RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
