@@ -14,7 +14,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-(lizmap-web-client-2.11.0 inside / qgis-mapserver-2.4)
+(lizmap-web-client-2.11.2 inside / qgis-mapserver-2.4)
 
 for install docker in the raspberry pi : 
 
@@ -44,7 +44,7 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t  jancelin/
 ```
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/
 
 -----------------------------------------------------------------------------------
 
@@ -81,11 +81,11 @@ ________________________________________________________________________________
 
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/admin.php
+http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 
