@@ -4,10 +4,11 @@ MAINTAINER ancelin julien / rpi_docker-qgismapserver-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
-RUN echo "deb     http://qgis.org/debian-ltr jessie main" >> /etc/apt/sources.list
+RUN echo "deb     http://ftp.debian.org/debian jessie-backports main contrib non-free" >> /etc/apt/sources.list
+#RUN echo "deb     http://qgis.org/debian-ltr jessie main" >> /etc/apt/sources.list
 #RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
 #RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
-RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 3FF5FFCAD71472C4
+#RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 3FF5FFCAD71472C4
 
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
