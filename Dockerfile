@@ -4,7 +4,7 @@ MAINTAINER ancelin julien / rpi_docker-qgismapserver-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
-RUN echo "deb     http://ftp.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb     http://ftp.debian.org/debian sid main contrib non-free" >> /etc/apt/sources.list
 #RUN echo "deb     http://qgis.org/debian-ltr jessie main" >> /etc/apt/sources.list
 #RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
 #RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
