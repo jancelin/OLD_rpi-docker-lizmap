@@ -14,13 +14,11 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-(lizmap-web-client-2.11.2 inside / qgis-mapserver-2.8.3)
+(lizmap-web-client-3.0pre / qgis-mapserver-2.8.3)
 
 for install docker in the raspberry pi : 
 
 http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0
-
-
 
 
 ![docker_lizmap](http://pbs.twimg.com/media/B6vkcZeIMAAS3Tp.jpg:large)
@@ -38,62 +36,46 @@ docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/rpi-docker-
 
 ```
 
-1.run for test
-```
-docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t  jancelin/rpi-docker-lizmap
-```
-Lizmap working for testing at 
-
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/
-
 -----------------------------------------------------------------------------------
 
-2.before running if is not a test:  
+2.before running :  
 
-This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
+Copy or create the .qgs files and .cfg.qgs (lizmap plugin) into a directory on the host, do a chown -R :www-data on the folder
 
-If the host is debian :
-Copy the files to a directory on the host, do a chown :www-data about each file ( or add -R for the folder)
+```
+mkdir /your_qgis_folder
+chown -R :www-data /your_qgis_folder
+```
 
 To run a container do:
 ```
-docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
+docker run --restart="always" --name "websig-lizmap" -p 80:80 -d -t -v /your_qgis_folder:/home:ro - jancelin/docker-lizmap
 ```
 
--p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host
+-p 80:80 ---> link between the port 80 of the host  and port 80 of the Container
 
 -v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 
--v /your_config_folder:/home2 ---> rovides a link between your host file containing the lizmap config, and / home2 Container.
-
-ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/sauvlizmap/entomo:/home2 jancelin/docker-websig
-
-
-
-
-or for edit 
-
+* If you want to edit the container: 
+```
 docker run  -i -t jancelin/docker-lizmap /bin/bash 
-
-if you want to save your edition : docker commit "id_of_container" "new_image_name"
-
+```
+if you want to save your edition into a new image: 
+```
+docker commit "id_of_container" "new_image_name"
+```
 ____________________________________________________________________________________
 
-Lizmap working for testing at 
-
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/
-
-lizmap admin at 
-
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.2/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 
-http://"your_ip_serveur":8081/websig/lizmap/www/
+http://"your_ip_rpi_wifi_serveur"/websig/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/websig/lizmap/www/admin.php
+http://"your_ip_rpi_wifi_serveur"/websig/lizmap/www/admin.php
+
+
 
 ____________________________________________________________________________________
 
