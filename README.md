@@ -6,7 +6,7 @@ __________________________________________________________________
 
 Go to the WIKI (in french) for global installation of standalone server WebGIS with Docker, Postgresql/Postgis, Qgis-server and lizmap :
 
-https://github.com/jancelin/rpi-docker-lizmap/wiki
+https://github.com/jancelin/geo-poppy
 
 ____________________________________________________________________
 
@@ -14,7 +14,6 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-=============
 lizmap-plugin-master / lizmap-web-client-3.0pre / qgis-mapserver-2.8.3 
 =============
 
