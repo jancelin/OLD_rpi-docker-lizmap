@@ -16,8 +16,9 @@ LizMap is a complete Internet QGIS map publishing.
 
 lizmap-plugin-master / lizmap-web-client-3.0pre / qgis-mapserver-2.8.3 
 =============
+____________________________________________________________________
 
-for install docker in the raspberry pi : 
+First, install docker in the raspberry pi : 
 
 http://blog.hypriot.com/downloads/
 
