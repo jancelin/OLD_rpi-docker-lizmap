@@ -108,6 +108,8 @@ RUN chmod 775  /var/www/websig/lizmap/www -R
 RUN chown :www-data /var/www/websig/lizmap/var -R
 RUN chmod 775  /var/www/websig/lizmap/var -R
 
+#add a redirection for just call the ip
+ADD index.html /var/www/index.html
 
 #RUN sudo /var/www/websig/lizmap/install/set_rights.sh
 #RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh
