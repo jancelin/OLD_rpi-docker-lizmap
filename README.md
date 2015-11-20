@@ -21,7 +21,7 @@ for install docker in the raspberry pi :
 http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0
 
 
-![docker_lizmap](http://pbs.twimg.com/media/B6vkcZeIMAAS3Tp.jpg:large)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/11306745/27df8ff2-8fb4-11e5-9624-c51fd70b6956.jpg)
 
 This image contains a WebGIS server: 
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
