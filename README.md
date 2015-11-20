@@ -70,6 +70,20 @@ docker commit "id_of_container" "new_image_name"
 ```
 ____________________________________________________________________________________
 
+* Paramétrons Lizmap pour pouvoir voir nos projets, allez à :
+
+```
+http://10.10.0.25/websig/lizmap/www/admin.php
+```
+
+* Ajouter **/home/** afin de lier votre répertoire de projet lizmap
+
+![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
+
+* Pour les différents paramétrages: http://docs.3liz.com/fr/ 
+
+
+____________________________________________________________________________________
 
 Lizmap working with your data and config at : 
 
