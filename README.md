@@ -49,7 +49,7 @@ chown -R :www-data /your_qgis_folder
 
 To run a container do:
 ```
-docker run --restart="always" --name "websig-lizmap" -p 80:80 -d -t -v /your_qgis_folder:/home:ro - jancelin/docker-lizmap
+docker run --restart="always" --name "websig-lizmap" -p 80:80 -d -t -v /your_qgis_folder:/home:ro jancelin/rpi-docker-lizmap
 ```
 
 -p 80:80 ---> link between the port 80 of the host  and port 80 of the Container
