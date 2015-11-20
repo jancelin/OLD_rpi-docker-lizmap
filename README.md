@@ -19,7 +19,9 @@ lizmap-plugin-master / lizmap-web-client-3.0pre / qgis-mapserver-2.8.3
 
 for install docker in the raspberry pi : 
 
-http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0
+http://blog.hypriot.com/downloads/
+
+_____________________________________________________________________
 
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/11306745/27df8ff2-8fb4-11e5-9624-c51fd70b6956.jpg)
