@@ -1,7 +1,5 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-FROM resin/raspberrypi-systemd:latest
-# Enable systemd
-ENV INITSYSTEM on
+FROM resin/rpi-raspbian
 MAINTAINER ancelin julien / rpi_docker-qgismapserver-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
