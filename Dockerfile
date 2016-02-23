@@ -5,7 +5,6 @@ RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-RUNN apt-get install -y pkg-mozilla-archive-keyring
 RUN echo "deb    http://http.debian.net/debian jessie-backports main " >> /etc/apt/sources.list
 #RUN gpg --keyserver pgpkeys.mit.edu --recv-key 01234567
 #RUN gpg -a --export 01234567 | apt-key add -
