@@ -5,20 +5,10 @@ RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
+# add jessie-backports
 RUN echo "deb    http://http.debian.net/debian jessie-backports main " >> /etc/apt/sources.list
-#RUN gpg --keyserver pgpkeys.mit.edu --recv-key 01234567
-#RUN gpg -a --export 01234567 | apt-key add -
-
-#RUN echo "deb     http://qgis.org/debian-ltr jessie main" >> /etc/apt/sources.list
-#RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
-#RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
-#RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 3FF5FFCAD71472C4
-
-# Use local cached debs from host (saves your bandwidth!)
-# Change ip below to that of your apt-cacher-ng host
-# Or comment this line out if you do not with to use caching
-#DD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
-
+RUN gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553
+RUN gpg -a --export 8B48AD6246925553 | sudo apt-key add -
 RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
@@ -48,28 +38,13 @@ ADD apache.conf /etc/apache2/sites-available/000-default.conf
 ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
 ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
 
-# Set up the postgis services file
-# On the client side when referencing postgis
-# layers, simply refer to the database using
-# Service: gis
-# instead of filling in all the host etc details.
-# In the container this service will connect 
-# with no encryption for optimal performance
-# on the client (i.e. your desktop) you should
-# connect using a similar service file but with
-# connection ssl option set to require
-
 ADD pg_service.conf /etc/pg_service.conf
-#USER www-data
 
-# This is so the qgis mapserver uses the correct
 # pg service file
 ENV PGSERVICEFILE /etc/pg_service.conf
 
 # install lizmap-web-client
-#RUN mkdir /web
 ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
-
 
 RUN unzip /var/www/master.zip -d /var/www/
 RUN mv /var/www/lizmap-web-client-master/ /var/www/websig/
@@ -85,8 +60,6 @@ RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/l
 RUN php /var/www/websig/lizmap/install/installer.php
 
 RUN mkdir /home2  
-
-
 
 #RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php 
 ##/var/www/websig/lizmap/var/config/profiles.ini.php
@@ -119,5 +92,6 @@ ADD index.html /var/www/index.html
 #RUN chmod +x /setup.sh
 #RUN /setup.sh
 VOLUME /home2
+
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND
