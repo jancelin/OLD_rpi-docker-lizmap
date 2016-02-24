@@ -25,7 +25,7 @@ http://blog.hypriot.com/downloads/
 _____________________________________________________________________
 
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/11306745/27df8ff2-8fb4-11e5-9624-c51fd70b6956.jpg)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/12889497/6c3a926e-ce7f-11e5-8391-de6b205307e2.png)
 
 This image contains a WebGIS server: 
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
@@ -44,43 +44,59 @@ docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/rpi-docker-
 
 2.before running :  
 
-Copy or create the .qgs files and .cfg.qgs (lizmap plugin) into a directory on the host, do a chown -R :www-data on the folder
-
+* Create folder for persistent data and config
 ```
-mkdir /your_qgis_folder
-chown -R :www-data /your_qgis_folder
-```
-
-To run a container do:
-```
-docker run --restart="always" --name "websig-lizmap" -p 80:80 -d -t -v /your_qgis_folder:/home:ro jancelin/rpi-docker-lizmap
+mkdir /home/lizmap_var
+mkdir /home/lizmap_project 
 ```
 
--p 80:80 ---> link between the port 80 of the host  and port 80 of the Container
+* set rights on lizmap_project
 
--v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
+```
+chown :www-data -R /home/lizmap_project
+```
 
-* If you want to edit the container: 
+* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
+
+* run a container with volume lizmap_var for copy /var/lizmap:
+        
 ```
-docker run  -i -t jancelin/docker-lizmap /bin/bash 
+docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/test:/home lizmap
 ```
-if you want to save your edition into a new image: 
-```
-docker commit "id_of_container" "new_image_name"
-```
+
+* go into lizmap_temp container:
+
+```docker exec -it lizmap_temp bash```
+
+* Copy folders with rights lizmap/var:
+
+```cp -avr /var/www/websig/lizmap/var /home```
+
+* exit container:
+
+```exit ```
+
+* On host, delete lizmap_temp
+
+```docker stop lizmap_temp && docker rm lizmap_temp```
+
+* start final container
+
+``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var lizmap ```
+
 ____________________________________________________________________________________
 
-* Paramétrons Lizmap pour pouvoir voir nos projets, allez à :
+* Now config lizmap on web :
 
 ```
 http://10.10.0.25/websig/lizmap/www/admin.php
 ```
 
-* Ajouter **/home/** afin de lier votre répertoire de projet lizmap
+* Add **/home/** for looking your geo projects
 
 ![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
 
-* Pour les différents paramétrages: http://docs.3liz.com/fr/ 
+* http://docs.3liz.com/fr/ 
 
 
 ____________________________________________________________________________________
