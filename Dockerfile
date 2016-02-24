@@ -12,7 +12,6 @@ RUN gpg -a --export 8B48AD6246925553 | sudo apt-key add -
 RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
-
 RUN apt-get -t jessie-backports install -y --force-yes python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \
     libapache2-mod-php5 qgis-server apache2-mpm-prefork
@@ -30,9 +29,10 @@ RUN rm -v /etc/apache2/mods-enabled/fcgid.conf
 # Copy a configuration file from the current directory
 ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 
-
+# Open port 80 & mount /home 
 EXPOSE 80
 VOLUME /home
+
 ADD apache2.conf /etc/apache2/apache2.conf
 ADD apache.conf /etc/apache2/sites-available/000-default.conf
 ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
