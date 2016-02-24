@@ -43,7 +43,7 @@ ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
 # download setup.sh and play it for install lizmap3
 ADD setup.sh /setup.sh
 RUN /setup.sh
-# link volume config persistent data host ( -v /home/lizmap_var:/var/www/websig/lizmap/var)
+# link volume lizmap_config persistent data host  if "-v /home/lizmap_var:/var/www/websig/lizmap/var" on docker run
 VOLUME  /var/www/websig/lizmap/var
 #add a redirection for just call the ip
 ADD index.html /var/www/index.html
