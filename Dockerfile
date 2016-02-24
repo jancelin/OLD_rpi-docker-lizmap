@@ -57,7 +57,7 @@ RUN chmod 775  /var/www/websig/lizmap/www -R
 RUN chown :www-data /var/www/websig/lizmap/var -R
 RUN chmod 775  /var/www/websig/lizmap/var -R
 # link volume config persistent data host ( -v /home/lizmap_var:/var/www/websig/lizmap/var)
-Volume  /var/www/websig/lizmap/var
+VOLUME  /var/www/websig/lizmap/var
 #add a redirection for just call the ip
 ADD index.html /var/www/index.html
 # Now launch apache in the foreground
