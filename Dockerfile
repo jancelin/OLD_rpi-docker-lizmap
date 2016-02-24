@@ -1,64 +1,56 @@
-#--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
+
 FROM resin/rpi-raspbian
-MAINTAINER ancelin julien / rpi_docker-qgismapserver-lizmap
+MAINTAINER Julien Ancelin / rpi_docker-qgis-server-lizmap
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
-
 # add jessie-backports
 RUN echo "deb    http://http.debian.net/debian jessie-backports main " >> /etc/apt/sources.list
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553
 RUN gpg -a --export 8B48AD6246925553 | sudo apt-key add -
+RUN gpg --keyserver pgpkeys.mit.edu --recv-key 7638D0442B90D010
+RUN gpg -a --export 7638D0442B90D010 | sudo apt-key add -
 RUN apt-get -y update
-
 #-------------Application Specific Stuff ----------------------------------------------------
 RUN apt-get -t jessie-backports install -y --force-yes python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \
     libapache2-mod-php5 qgis-server apache2-mpm-prefork
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; a2enmod deflate; a2enmod php5
-
 #config compression
 ADD mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf
-
 #config php5
 ADD php.conf /etc/apache2/conf.d/php.conf
-
 # Remove the default mod_fcgid configuration file
 RUN rm -v /etc/apache2/mods-enabled/fcgid.conf
-
 # Copy a configuration file from the current directory
 ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
-
 # Open port 80 & mount /home 
 EXPOSE 80
+# Mount /home (persistent data)
 VOLUME /home
-
+# Configure apache
 ADD apache2.conf /etc/apache2/apache2.conf
 ADD apache.conf /etc/apache2/sites-available/000-default.conf
 ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
 ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
-
 ADD pg_service.conf /etc/pg_service.conf
-
 # pg service file
 ENV PGSERVICEFILE /etc/pg_service.conf
-
-# install lizmap-web-client
+#-----------------install lizmap-web-client-------------------------------
+# Download & unzip
 ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
-
 RUN unzip /var/www/master.zip -d /var/www/
 RUN mv /var/www/lizmap-web-client-master/ /var/www/websig/
 RUN rm /var/www/master.zip
-
+# Set rights & active config
 RUN  chmod +x /var/www/websig/lizmap/install/set_rights.sh
 RUN /var/www/websig/lizmap/install/set_rights.sh www-data www-data
- 
 RUN cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
 RUN cp /var/www/websig/lizmap/var/config/localconfig.ini.php.dist /var/www/websig/lizmap/var/config/localconfig.ini.php
 RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
-
+# Run Installer
 RUN php /var/www/websig/lizmap/install/installer.php
-
+#Create /home2 (for persistent config)
 RUN mkdir /home2  
 
 #RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php 
