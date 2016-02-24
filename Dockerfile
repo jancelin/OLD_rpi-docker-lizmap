@@ -40,22 +40,9 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 #-----------------install lizmap-web-client-------------------------------
 # Download & unzip
 ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
-RUN unzip /var/www/master.zip -d /var/www/
-RUN mv /var/www/lizmap-web-client-master/ /var/www/websig/
-RUN rm /var/www/master.zip
-# Set rights & active config
-RUN  chmod +x /var/www/websig/lizmap/install/set_rights.sh
-RUN /var/www/websig/lizmap/install/set_rights.sh www-data www-data
-RUN cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
-RUN cp /var/www/websig/lizmap/var/config/localconfig.ini.php.dist /var/www/websig/lizmap/var/config/localconfig.ini.php
-RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
-# Run Installer
-RUN php /var/www/websig/lizmap/install/installer.php
-# Set rights
-RUN chown :www-data  /var/www/websig/lizmap/www -R
-RUN chmod 775  /var/www/websig/lizmap/www -R
-RUN chown :www-data /var/www/websig/lizmap/var -R
-RUN chmod 775  /var/www/websig/lizmap/var -R
+# download setup.sh and play it for install lizmap3
+ADD setup.sh /setup.sh
+RUN /setup.sh
 # link volume config persistent data host ( -v /home/lizmap_var:/var/www/websig/lizmap/var)
 VOLUME  /var/www/websig/lizmap/var
 #add a redirection for just call the ip
