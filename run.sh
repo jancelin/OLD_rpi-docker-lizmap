@@ -1,2 +1,2 @@
-docker run --restart="always" --name="qgis-lizmap"  --hostname="qgis-lizmap" -p 8081:80  -d -t jancelin/docker-lizmap
-echo "Now point your browser at: http://localhost:8081/websig/lizmap/www/index.php"
+docker run --restart="always" --name "lizmap"  -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var  lizmap
+echo "Now connect to geopoppy wifi and point your browser at: http://10.10.0.25"
