@@ -18,9 +18,13 @@ lizmap-plugin-master / lizmap-web-client-3.0pre / qgis-server-2.8.6
 =============
 ____________________________________________________________________
 
-First, install docker in the raspberry pi : 
+First, install docker an postgis on the raspberry pi : 
 
 http://blog.hypriot.com/downloads/
+
+and install Postgresql-postgis:
+
+https://github.com/jancelin/docker-postgis-rpi
 
 _____________________________________________________________________
 
