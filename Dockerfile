@@ -12,9 +12,11 @@ RUN gpg --keyserver pgpkeys.mit.edu --recv-key 7638D0442B90D010
 RUN gpg -a --export 7638D0442B90D010 | sudo apt-key add -
 RUN apt-get -y update
 # Install 
-RUN apt-get -t sid install -y --force-yes python-simplejson xauth htop nano curl ntp ntpdate \ 
+RUN apt-get -t sid install -y --force-yes qgis-server
+RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate \ 
     python-software-properties git wget unzip apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi\
     php5-curl php5-cli php5-sqlite php5-gd php5-pgsql libapache2-mod-php5 qgis-server apache2-mpm-prefork
+    
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 #config compression
