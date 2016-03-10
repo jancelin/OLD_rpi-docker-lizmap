@@ -16,7 +16,7 @@ RUN apt-get -y update
 RUN apt-get -t sid install -y --force-yes qgis-server
 RUN apt-get -t sid install -y  python-simplejson xauth htop vim curl ntp ntpdate \ 
     python-software-properties git wget unzip \
-    apache2=2.4.18-1 apache2-mpm-worker apache2-mpm-prefork apache2-bin apache2-data \
+    apache2=2.4.10-10+deb8u4 apache2-mpm-worker=2.4.10-10+deb8u4 apache2-mpm-prefork=2.4.10-10+deb8u4 apache2-bin=2.4.10-10+deb8u4 apache2-data=2.4.10-10+deb8u4 \
     libapache2-mod-fcgid libapache2-mod-php5 php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql 
     
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
