@@ -1,9 +1,9 @@
 
 FROM resin/rpi-raspbian
 MAINTAINER Julien Ancelin / rpi_docker-qgis-server-lizmap
-RUN  export DEBIAN_FRONTEND=noninteractive
-ENV  DEBIAN_FRONTEND noninteractive
-RUN  dpkg-divert --local --rename --add /sbin/initctl
+#RUN  export DEBIAN_FRONTEND=noninteractive
+#ENV  DEBIAN_FRONTEND noninteractive
+#RUN  dpkg-divert --local --rename --add /sbin/initctl
 # Add jessie-backports
 RUN echo "deb    http://http.debian.net/debian jessie-backports main " >> /etc/apt/sources.list
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553
