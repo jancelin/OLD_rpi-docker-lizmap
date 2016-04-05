@@ -14,7 +14,7 @@ RUN gpg -a --export 7638D0442B90D010 | sudo apt-key add -
 RUN apt-get -y update
 # Install 
 RUN apt-get -t sid install -y --force-yes qgis-server
-RUN apt-get -t jessie-backports install -y  python-simplejson xauth htop vim curl ntp ntpdate \ 
+RUN apt-get -t sid install -y  python-simplejson xauth htop vim curl ntp ntpdate \ 
     python-software-properties git wget unzip \
     apache2=2.4.10-10+deb8u4 apache2-mpm-worker=2.4.10-10+deb8u4 apache2-mpm-prefork=2.4.10-10+deb8u4 \
     apache2-bin=2.4.10-10+deb8u4 apache2-data=2.4.10-10+deb8u4 \
