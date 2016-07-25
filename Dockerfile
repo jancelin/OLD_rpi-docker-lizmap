@@ -14,23 +14,14 @@ RUN gpg -a --export 7638D0442B90D010 | sudo apt-key add -
 RUN apt-get -y update
 # Install 
 RUN apt-get -t sid install -y --force-yes qgis-server
-#RUN apt-get  install -y  python-simplejson xauth htop vim curl ntp ntpdate \ 
-#    python-software-properties git wget unzip \
-#    apache2=2.4.10-10+deb8u4 apache2-mpm-worker=2.4.10-10+deb8u4 apache2-mpm-prefork=2.4.10-10+deb8u4 \
-#    apache2-bin=2.4.10-10+deb8u4 apache2-data=2.4.10-10+deb8u4 \
-#    libapache2-mod-fcgid=1:2.3.9-1+b1 libapache2-mod-php5=5.6.22+dfsg-0+deb8u1 \
-#    php5=5.6.22+dfsg-0+deb8u1 php5-common=5.6.22+dfsg-0+deb8u1 php5-cgi=5.6.22+dfsg-0+deb8u1 php5-curl=5.6.22+dfsg-0+deb8u1\
-#    php5-cli=5.6.22+dfsg-0+deb8u1 php5-sqlite=5.6.22+dfsg-0+deb8u1 php5-gd=5.6.22+dfsg-0+deb8u1\
-#    php5-pgsql=5.6.22+dfsg-0+deb8u1
-    
 RUN apt-get  install -y  python-simplejson xauth htop vim curl ntp ntpdate \ 
     python-software-properties git wget unzip \
-    apache2 apache2-mpm-worker apache2-mpm-prefork \
-    apache2-bin apache2-data \
-    libapache2-mod-fcgid libapache2-mod-php5 \
-    php5 php5-common php5-cgi php5-curl \
-    php5-cli php5-sqlite php5-gd \
-    php5-pgsql
+    apache2=2.4.10-10+deb8u5 apache2-mpm-worker=2.4.10-10+deb8u5 apache2-mpm-prefork=2.4.10-10+deb8u5 \
+    apache2-bin=2.4.10-10+deb8u5 apache2-data=2.4.10-10+deb8u5 \
+    libapache2-mod-fcgid=1:2.3.9-1+b1 libapache2-mod-php5=5.6.23+dfsg-0+deb8u1 \
+    php5=5.6.23+dfsg-0+deb8u1 php5-common=5.6.23+dfsg-0+deb8u1 php5-cgi=5.6.23+dfsg-0+deb8u1 php5-curl=5.6.23+dfsg-0+deb8u1\
+    php5-cli=5.6.23+dfsg-0+deb8u1 php5-sqlite=5.6.23+dfsg-0+deb8u1 php5-gd=5.6.23+dfsg-0+deb8u1\
+    php5-pgsql=5.6.23+dfsg-0+deb8u1
     
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
