@@ -14,7 +14,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-lizmap-plugin-master / lizmap-web-client-3.0.1 / qgis-server-2.14.4
+lizmap-plugin-master / lizmap-web-client-3.0.3 / qgis-server-2.14.4
 =============
 ____________________________________________________________________
 
@@ -54,37 +54,9 @@ mkdir /home/lizmap_var
 mkdir /home/lizmap_project 
 ```
 
-* set rights on lizmap_project
 
-```
-chown :www-data -R /home/lizmap_project
-```
 
-* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
-
-* run a container with volume lizmap_var for copy /var/lizmap:
-        
-```
-docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/test:/home lizmap
-```
-
-* go into lizmap_temp container:
-
-```docker exec -it lizmap_temp bash```
-
-* Copy folders with rights lizmap/var:
-
-```cp -avr /var/www/websig/lizmap/var /home```
-
-* exit container:
-
-```exit ```
-
-* On host, delete lizmap_temp
-
-```docker stop lizmap_temp && docker rm lizmap_temp```
-
-* start final container
+* start container
 
  ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var lizmap ```
 
@@ -93,7 +65,7 @@ ________________________________________________________________________________
 * Now config lizmap on web :
 
 ```
-http://10.10.0.25/websig/lizmap/www/admin.php
+http://ip/websig/lizmap/www/admin.php
 ```
 
 * Add **/home/** for looking your geo projects
