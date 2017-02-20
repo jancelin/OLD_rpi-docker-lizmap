@@ -40,7 +40,7 @@ To build the image do:
  you can build an image from Dockerfile:
 
 ```
-docker build -t jancelin/rpi-docker-lizmap:3.1-2.14LTR git://github.com/jancelin/rpi-docker-lizmap
+docker build -t jancelin/geopoppy:qgis2.14-lizmap3.1 git://github.com/jancelin/rpi-docker-lizmap
 
 ```
 
