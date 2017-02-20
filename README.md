@@ -14,7 +14,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-lizmap-plugin / lizmap-web-client-3.1rc1 / qgis-server-2.14....
+lizmap-plugin / lizmap-web-client-3.1rc1 / qgis-server-2.14.11
 =============
 ____________________________________________________________________
 
