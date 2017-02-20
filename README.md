@@ -14,7 +14,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-lizmap-plugin-master / lizmap-web-client-3.0.3 / qgis-server-2.14.6
+lizmap-plugin / lizmap-web-client-3.1rc1 / qgis-server-2.14....
 =============
 ____________________________________________________________________
 
@@ -40,7 +40,7 @@ To build the image do:
  you can build an image from Dockerfile:
 
 ```
-docker build -t jancelin/rpi-docker-lizmap git://github.com/jancelin/rpi-docker-lizmap
+docker build -t jancelin/rpi-docker-lizmap:3.1-2.14LTR git://github.com/jancelin/rpi-docker-lizmap
 
 ```
 
@@ -58,7 +58,7 @@ mkdir /home/lizmap_project
 
 * start container
 
- ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var lizmap ```
+ ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var jancelin/rpi-docker-lizmap:3.1-2.14LTR ```
 
 ____________________________________________________________________________________
 
@@ -82,7 +82,7 @@ Lizmap working with your data and config at :
 ```
 http://"your_ip_rpi_wifi_serveur"
 ```
-exemple for me: http://10.10.0.25
+exemple for me: http://172.24.1.1
 
 or
 ```
