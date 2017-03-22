@@ -11,8 +11,8 @@ RUN echo "deb    http://http.debian.net/debian sid main " >> /etc/apt/sources.li
 #RUN gpg -a --export 8B48AD6246925553 | sudo apt-key add -
 #RUN gpg --keyserver pgpkeys.mit.edu --recv-key 7638D0442B90D010
 #RUN gpg -a --export 7638D0442B90D010 | sudo apt-key add -
-RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
-RUN gpg --export --armor DD45F6C3 | apt-key add -
+RUN gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys A04A6C4681484CF1
+RUN gpg --export A04A6C4681484CF1 | apt-key add -
 RUN apt-get -y update
 # Install 
 RUN apt-get -t sid install -y --force-yes qgis-server
