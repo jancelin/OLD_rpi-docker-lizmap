@@ -19,7 +19,8 @@ RUN apt-get -t jessie install -y  python-simplejson xauth htop vim curl ntp ntpd
     apache2 apache2-mpm-worker apache2-mpm-prefork apache2-bin apache2-data \
     libapache2-mod-fcgid libapache2-mod-php5 php5 php5-common php5-cgi php5-curl\
     php5-cli php5-sqlite php5-gd php5-pgsql
-    
+RUN apt-get clean && apt-get -y autoremove
+#config 
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 #config compression
