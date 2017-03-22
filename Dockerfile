@@ -1,5 +1,5 @@
 
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:latest
 MAINTAINER Julien Ancelin / rpi_docker-qgis-server-lizmap
 #RUN  export DEBIAN_FRONTEND=noninteractive
 #ENV  DEBIAN_FRONTEND noninteractive
