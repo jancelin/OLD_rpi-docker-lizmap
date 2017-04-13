@@ -60,7 +60,9 @@ ADD index.html /var/www/index.html
 #add start.sh on first install, generate config file: ~/lizmap/var
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
-# Now launch apache in the foreground
-CMD /start.sh
+#add https
 RUN a2enmod ssl 
 EXPOSE 443
+# Now launch apache in the foreground
+CMD /start.sh
+
