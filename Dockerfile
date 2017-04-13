@@ -61,5 +61,6 @@ ADD index.html /var/www/index.html
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
 # Now launch apache in the foreground
+EXPOSE 443
 CMD /start.sh
 
