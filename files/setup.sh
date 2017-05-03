@@ -3,8 +3,8 @@
 set -x
 
 mkdir /etc/apache2/ssl 
-RUN /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem 
-RUN /usr/sbin/a2ensite default-ssl 
+/usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem 
+/usr/sbin/a2ensite default-ssl 
 
     mv /home/files/mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf  
     mv /home/files/php.conf /etc/apache2/conf.d/php.conf 
