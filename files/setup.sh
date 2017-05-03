@@ -7,8 +7,7 @@ mkdir /etc/apache2/ssl
 /usr/sbin/a2ensite default-ssl 
 
     mv /home/files/mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf  
-    mv /home/files/php.conf /etc/apache2/conf.d/php.conf 
-    mv /home/files/fcgid.conf /etc/apache2/mods-enabled/fcgid.conf 
+    mv /home/files/php.conf /etc/apache2/conf.d/php.conf  
     mv /home/files/apache_https.conf /etc/apache2/sites-available/default-ssl.conf 
     mv /home/files/apache.conf /etc/apache2/sites-available/000-default.conf 
     mv /home/files/apache2.conf /etc/apache2/apache2.conf 
@@ -17,7 +16,7 @@ mkdir /etc/apache2/ssl
     mv /home/files/setup.sh /setup.sh 
     mv /home/files/index.html /var/www/index.html 
     mv /home/files/start.sh /start.sh
-    chmod 0755 /home/files/start.sh
+    chmod 0755 /start.sh
 
 # unzip lizmap master
 unzip /var/www/3.1.1.zip -d /var/www/
