@@ -27,10 +27,10 @@ RUN chmod +x /home/files/setup.sh \
 VOLUME  /var/www/websig/lizmap/var
 VOLUME /home
 
-RUN chmod 0755 /start.sh
+RUN chmod 0755 home/files/start.sh
 # Open port 80 443 
 EXPOSE 80
 EXPOSE 443
 # Now launch apache in the foreground
-CMD /start.sh
+CMD home/files/start.sh
 
