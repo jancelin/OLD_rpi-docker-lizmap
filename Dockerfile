@@ -22,8 +22,8 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 # Download & unzip & install
 ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
 
-RUN chmod +x /home/setup.sh \
-    && /home/setup.sh
+RUN chmod +x /home/files/setup.sh \
+    && /home/files/setup.sh
 VOLUME  /var/www/websig/lizmap/var
 VOLUME /home
 
