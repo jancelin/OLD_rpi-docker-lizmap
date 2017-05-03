@@ -12,34 +12,35 @@ RUN apt-get -y update \
 #config 
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
-#config compression
-ADD mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf
-#config php5
-ADD php.conf /etc/apache2/conf.d/php.conf
-# Copy a configuration file from the current directory
-ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
+
+ADD files /home
+RUN mv /home/files/mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf && \
+    mv /home/files/php.conf /etc/apache2/conf.d/php.conf && \
+    mv /home/files/fcgid.conf /etc/apache2/mods-enabled/fcgid.conf && \
+    mv /home/files/apache_https.conf /etc/apache2/sites-available/default-ssl.conf && \
+    mv /home/files/apache.conf /etc/apache2/sites-available/000-default.conf && \
+    mv /home/files/apache2.conf /etc/apache2/apache2.conf && \
+    mv /home/files/fcgid.conf /etc/apache2/mods-available/fcgid.conf && \
+    mv /home/files/pg_service.conf /etc/pg_service.conf && \
+    mv /home/files/setup.sh /setup.sh && \
+    mv /home/files/index.html /var/www/index.html && \
+    mv /home/files/start.sh /start.sh
 # Configure apache
 RUN mkdir /etc/apache2/ssl
 RUN /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
 RUN /usr/sbin/a2ensite default-ssl
 
-ADD apache_https.conf /etc/apache2/sites-available/default-ssl.conf
-ADD apache.conf /etc/apache2/sites-available/000-default.conf
-ADD apache2.conf /etc/apache2/apache2.conf
-ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
-ADD pg_service.conf /etc/pg_service.conf
 # pg service file
 ENV PGSERVICEFILE /etc/pg_service.conf
 #-----------------install lizmap-web-client-------------------------------
 # Download & unzip & install
 ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
-ADD setup.sh /setup.sh
+
 RUN chmod +x /setup.sh \
     && /setup.sh
 VOLUME  /var/www/websig/lizmap/var
 VOLUME /home
-ADD index.html /var/www/index.html
-ADD start.sh /start.sh
+
 RUN chmod 0755 /start.sh
 # Open port 80 443 
 EXPOSE 80
