@@ -24,10 +24,9 @@ ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
 
 RUN chmod +x /home/files/setup.sh \
     && /home/files/setup.sh
+    
 VOLUME  /var/www/websig/lizmap/var
 VOLUME /home
-
-RUN chmod 0755 /home/files/start.sh
 # Open port 80 443 
 EXPOSE 80 443
 # Now launch apache in the foreground
