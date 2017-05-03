@@ -13,7 +13,8 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-ADD files /home/files/
+COPY files/ /home/files/
+RUN ls -la /home/files/*
 RUN mv /home/files/mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf && \
     mv /home/files/php.conf /etc/apache2/conf.d/php.conf && \
     mv /home/files/fcgid.conf /etc/apache2/mods-enabled/fcgid.conf && \
