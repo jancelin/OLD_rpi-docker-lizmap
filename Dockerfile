@@ -29,8 +29,7 @@ VOLUME /home
 
 RUN chmod 0755 /home/files/start.sh
 # Open port 80 443 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 # Now launch apache in the foreground
 CMD /home/files/start.sh
 
