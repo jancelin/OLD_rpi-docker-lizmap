@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -x
 
 mkdir /etc/apache2/ssl 
 RUN /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem 
