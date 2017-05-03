@@ -17,6 +17,7 @@ mkdir /etc/apache2/ssl
     mv /home/files/index.html /var/www/index.html 
     mv /home/files/start.sh /start.sh
     chmod 0755 /start.sh
+    chmod +x /setup.sh
 
 # unzip lizmap master
 unzip /var/www/3.1.1.zip -d /var/www/
