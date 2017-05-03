@@ -13,12 +13,8 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-COPY files/ /home/files/
 
-# Configure apache
-RUN mkdir /etc/apache2/ssl
-RUN /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
-RUN /usr/sbin/a2ensite default-ssl
+COPY files/ /home/files/
 
 # pg service file
 ENV PGSERVICEFILE /etc/pg_service.conf
