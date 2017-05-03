@@ -13,7 +13,7 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-
+RUN ls -la /home
 COPY files/ /home/files/
 
 # pg service file
