@@ -14,7 +14,7 @@ LizMap est une solution complète de publication de cartes QGIS sur Internet.
 
 LizMap is a complete Internet QGIS map publishing.
 
-lizmap-plugin / lizmap-web-client-3.1.0 / qgis-server-2.14.11
+lizmap-plugin / lizmap-web-client-3.1.1 / qgis-server-2.14.11
 =============
 ____________________________________________________________________
 
@@ -31,42 +31,37 @@ _____________________________________________________________________
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/12889497/6c3a926e-ce7f-11e5-8391-de6b205307e2.png)
 
-This image contains a WebGIS server: 
-Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
 
-
-To build the image do:
-
- you can build an image from Dockerfile:
-
+* create Files:
 ```
-docker build -t jancelin/geopoppy:qgis2.14-lizmap3.1 git://github.com/jancelin/rpi-docker-lizmap
-
+mkdir /home/GeoPoppy/lizmap/project
+mkdir /home/GeoPoppy/lizmap/project/var
+mkdir /home/GeoPoppy/lizmap/project/tmp
+mkdir /home/GeoPoppy/postgres_data
+mkdir /home/pirate/postgres_config/9.5
 ```
 
------------------------------------------------------------------------------------
+* create a file.yml for compose:
 
-2.before the first running :  
-
-* Create folder for persistent data and config
 ```
-mkdir /home/lizmap_var
-mkdir /home/lizmap_project 
+nano docker-compose.yml
 ```
 
+copy paste 
 
+**https://github.com/jancelin/rpi-docker-lizmap/blob/3.1-0.1/docker-compose.yml**
 
-* start container
+* do a 
 
- ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var jancelin/rpi-docker-lizmap:3.1-2.14LTR ```
-
-____________________________________________________________________________________
+```docker-compose up -d```
 
 * Now config lizmap on web :
 
 ```
 http://ip/websig/lizmap/www/admin.php
 ```
+
+* Modify administration >> wms url : ```http://qgiserver/cgi-bin/qgis_mapserv.fcgi```
 
 * Add **/home/** for looking your geo projects
 
@@ -92,6 +87,8 @@ lizmap admin at
 ```
 http://"your_ip_rpi_wifi_serveur"/websig/lizmap/www/admin.php
 ```
+
+For localisation use HTTPS
 ____________________________________________________________________________________
 
 Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
