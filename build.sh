@@ -1,1 +1,1 @@
-docker build -t jancelin/qgis-lizmap:latest .
+docker build -t jancelin/rpi-docker-lizmap
