@@ -18,7 +18,7 @@ COPY files/ /home/files/
 
 ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
 
-RUN /home/files/setup.sh
+#RUN /home/files/setup.sh
     
 VOLUME  /var/www/websig/lizmap/var
 VOLUME /home
