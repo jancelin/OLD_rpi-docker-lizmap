@@ -4,9 +4,6 @@ RUN apk --update add xauth htop curl apache2 apache2-utils apache-mod-fcgid php5
                  py-simplejson vim ca-certificates unzip \
                  && rm -f /var/cache/apk/*
 
-RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
-    a2enmod deflate; a2enmod php5
-
 ENV LIZMAPVERSION 3.1.1
 
 COPY filesAlpine/ /home/files/
