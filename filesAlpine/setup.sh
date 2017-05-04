@@ -2,10 +2,6 @@
 
 set -x
 
-mkdir /etc/apache2/ssl 
-/usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem 
-/usr/sbin/a2ensite default-ssl 
-
 mv /home/files/php.conf /etc/apache2/conf-available/php.conf
 mv /home/files/apache2.conf /etc/apache2/apache2.conf 
 rm -v /etc/apache2/mods-enabled/fcgid.conf
