@@ -1,6 +1,6 @@
 FROM hypriot/rpi-alpine
 MAINTAINER julien Ancelin
-RUN apk --update add xauth htop curl apache2 apache-mod-fcgid php5-fpm php5-cgi php5-gd php5-sqlite3 php5-curl php5-xmlrpc \
+RUN apk --update add xauth htop curl apache2 apache2-utils apache-mod-fcgid php5-fpm php5-cgi php5-gd php5-sqlite3 php5-curl php5-xmlrpc \
                  py-simplejson vim ca-certificates unzip \
                  && rm -f /var/cache/apk/*
 
