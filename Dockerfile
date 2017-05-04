@@ -14,15 +14,13 @@ RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite
     a2enmod deflate; a2enmod php5
 
 ENV LIZMAPVERSION 3.1.1
+
 COPY files/ /home/files/
 
 ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
-
 RUN /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
-# Open port 80 443 
 EXPOSE 80 443
-# Now launch apache in the foreground
 CMD /start.sh
 
