@@ -20,8 +20,7 @@ ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
 
 #RUN /home/files/setup.sh
     
-VOLUME  /var/www/websig/lizmap/var
-VOLUME /home
+VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
 # Open port 80 443 
 EXPOSE 80 443
 # Now launch apache in the foreground
