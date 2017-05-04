@@ -9,7 +9,8 @@ ENV LIZMAPVERSION 3.1.1
 COPY filesAlpine/ /home/files/
 
 ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
-RUN  chmod +x /home/files/setup.sh
+RUN  chmod +x /home/files/setup.sh && \
+     sh /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
 EXPOSE 80 443
