@@ -14,5 +14,6 @@ RUN  chmod +x /home/files/setup.sh && \
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
 EXPOSE 80 443
+RUN chmod +x /start.sh
 CMD /start.sh
 
