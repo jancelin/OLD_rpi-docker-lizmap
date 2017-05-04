@@ -18,9 +18,9 @@ mv /home/files/start.sh /start.sh
 chmod 0755 /start.sh     
     
 # unzip lizmap master
-unzip /var/www/3.1.1.zip -d /var/www/
-mv /var/www/lizmap-web-client-3.1.1/ /var/www/websig/
-rm /var/www/3.1.1.zip
+unzip /var/www/$LIZMAPVERSION.zip -d /var/www/
+mv /var/www/lizmap-web-client-$LIZMAPVERSION/ /var/www/websig/
+rm /var/www/$LIZMAPVERSION.zip
 # Set rights & active config
 chmod +x /var/www/websig/lizmap/install/set_rights.sh
 /var/www/websig/lizmap/install/set_rights.sh www-data www-data
