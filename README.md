@@ -22,9 +22,7 @@ First, install docker on the raspberry pi :
 
 http://blog.hypriot.com/downloads/
 
-and install Postgresql-postgis:
-
-https://github.com/jancelin/docker-postgis-rpi
+https://github.com/jancelin/geo-poppy/blob/master/install/README_install_geopoppy.md
 
 _____________________________________________________________________
 
