@@ -6,11 +6,11 @@ mkdir /etc/apache2/ssl
 /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem 
 /usr/sbin/a2ensite default-ssl 
 
-mv /home/files/php.conf /etc/apache2/conf.d/php.conf
+mv /home/files/php.conf /etc/apache2/conf-available/php.conf
 mv /home/files/apache2.conf /etc/apache2/apache2.conf 
 rm -v /etc/apache2/mods-enabled/fcgid.conf
 mv /home/files/fcgid.conf /etc/apache2/mods-enabled/fcgid.conf 
-mv /home/files/mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf  
+mv /home/files/mod_deflate.conf /etc/apache2/conf-available/mod_deflate.conf  
 mv /home/files/apache_https.conf /etc/apache2/sites-available/default-ssl.conf 
 mv /home/files/apache.conf /etc/apache2/sites-available/000-default.conf 
 mv /home/files/index.html /var/www/index.html     
