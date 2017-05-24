@@ -1,3 +1,3 @@
-**Merge the project with**
+**Project Merge **
 
-https://github.com/jancelin/docker-lizmap
+**https://github.com/jancelin/docker-lizmap**
